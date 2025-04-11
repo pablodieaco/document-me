@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+
+# Virtual environments
+.venv/
+venv/
+
+# Environment variables
+.env
+
+# IDEs
+.idea/
+.vscode/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Models (if you're storing them locally)
+*models/
+
+# Prefect temporary files
+.prefect/
+
+# Python distribution
+*.egg
+*.egg-info
+dist/
+build/
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db

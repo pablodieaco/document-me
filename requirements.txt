@@ -1,0 +1,16 @@
+prefect>=2.0
+watchdog
+langchain==0.3.23
+llama-cpp-python
+astor
+filelock
+dotenv==0.9.9
+langchain-community==0.3.21
+huggingface_hub==0.30.2
+langchain-huggingface
+loguru
+accelerate
+transformers
+protobuf
+sentencepiece
+argparse
