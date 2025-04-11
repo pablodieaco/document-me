@@ -6,6 +6,9 @@ This project watches a folder of `.py` scripts, detects when one is modified, an
 
 ---
 
+## 🖼️ Preview
+<img src="gifs/example_l.gif" alt="Multi Script File Example" width="1000"/>
+
 ## 🚀 Features
 
 - 📂 Watches `scripts/` for changes
