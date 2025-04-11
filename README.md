@@ -1,4 +1,4 @@
-# 🧠 document-me
+# 📃 document-me
 
 **Automatic Python function docstring generator** using [Langchain](https://www.langchain.com/), [Prefect](https://www.prefect.io/), and [Ollama](https://ollama.com/).
 
@@ -9,7 +9,7 @@ This project watches a folder of `.py` scripts, detects when one is modified, an
 ## 🚀 Features
 
 - 📂 Watches `scripts/` for changes
-- 🤖 Detects undocumented functions via AST
+- 🤖 Detects undocumented functions via AST and Watchdog
 - 🧠 Uses LLaMA3 (via Ollama) to generate docstrings
 - 📝 Saves output into `documented_scripts/` (non-destructive)
 - ⚙️ Integrated with Prefect 2 for observability
