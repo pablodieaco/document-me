@@ -33,47 +33,9 @@ def get_llm(model_name: str = "llama3"):
     from langchain_community.llms import Ollama
 
     return Ollama(
-        model=model_name,  # ← Este es el nombre que usas en `ollama run`
+        model=model_name,
         temperature=0.1,
         top_p=0.95,
         repeat_penalty=1.1,
         num_ctx=4096,
     )
-
-
-# def get_llm(model_id=MODEL_ID, local_dir=LOCAL_DIR):
-#     if not os.path.exists(local_dir):
-#         logger.info(
-#             f"[LLM] Not found local model {local_dir}, downloading {model_id}..."
-#         )
-#         tokenizer = AutoTokenizer.from_pretrained(model_id)
-#         model = AutoModelForSeq2SeqLM.from_pretrained(
-#             model_id, device_map="auto", torch_dtype="auto"
-#         )
-#         # Guarda localmente
-#         logger.info("[LLM] Saving model locally...")
-#         os.makedirs(local_dir, exist_ok=True)
-#         tokenizer.save_pretrained(local_dir)
-#         model.save_pretrained(local_dir)
-#     else:
-#         logger.info("[LLM] Loading local model...")
-#         tokenizer = AutoTokenizer.from_pretrained(local_dir)
-#         model = AutoModelForSeq2SeqLM.from_pretrained(
-#             local_dir, device_map="auto", torch_dtype="auto"
-#         )
-
-#     hf_pipeline = pipeline(
-#         "text-generation",
-#         model=model,
-#         tokenizer=tokenizer,
-#         temperature=0.1,  # recomendable temperatura baja
-#         top_p=0.95,  # controlar calidad y diversidad
-#         repetition_penalty=1.1,  # evitar repeticiones
-#         max_new_tokens=150,  # reducción recomendada
-#         eos_token_id=tokenizer.eos_token_id,
-#         do_sample=True,
-#     )
-
-#     logger.info("[LLM] Model loaded successfully.")
-
-#     return HuggingFacePipeline(pipeline=hf_pipeline)

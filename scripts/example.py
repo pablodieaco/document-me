@@ -31,7 +31,7 @@ def get_llm():
     from langchain_community.llms import Ollama
 
     return Ollama(
-        model="llama3",  # ← Este es el nombre que usas en `ollama run`
+        model="llama3",
         temperature=0.1,
         top_p=0.95,
         repeat_penalty=1.1,
@@ -45,7 +45,6 @@ def safe_save(path, content):
     from filelock import FileLock
     from loguru import logger
 
-    # Crear carpeta de locks si no existe
     lock_dir = os.path.join(os.path.dirname(path), ".locks")
     os.makedirs(lock_dir, exist_ok=True)
 

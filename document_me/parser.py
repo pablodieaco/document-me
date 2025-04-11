@@ -72,10 +72,8 @@ def save_to_output(original_path, content):
 
     filename = os.path.basename(original_path)
 
-    # Ruta absoluta al directorio scripts/
     scripts_dir = os.path.abspath(os.path.join(os.path.dirname(original_path), ".."))
 
-    # Ruta a documented_scripts/ en el mismo nivel que scripts/
     output_dir = os.path.join(scripts_dir, "documented_scripts")
 
     os.makedirs(output_dir, exist_ok=True)
