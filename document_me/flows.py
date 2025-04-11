@@ -21,7 +21,12 @@ def document_function(func_code, model_name: str = "llama3"):
 
 
 @flow(name="document_script_flow", task_runner=ConcurrentTaskRunner(max_workers=1))
-def document_script_flow(file_path: str, model_name: str = "llama3"):
+def document_script_flow(
+    file_path: str,
+    model_name: str = "llama3",
+    input_folder: str = "scripts/",
+    output_folder: str = "documented_scripts/",
+):
     functions = analyze_file(file_path)
 
     documented = []
@@ -34,4 +39,4 @@ def document_script_flow(file_path: str, model_name: str = "llama3"):
     modified_code = insert_docstrings(file_path, documented)
     logger.info(f"[Documenter] Finished documentation for: {file_path}")
 
-    save_to_output(file_path, modified_code)
+    save_to_output(file_path, modified_code, output_folder)

@@ -81,7 +81,7 @@ And follow the instructions.
 ollama run llama3
 ```
 
-### 2. Run the Wathcer
+### 2. Run the Watcher
 
 ```bash
 make watcher 
@@ -90,7 +90,7 @@ make watcher
 By default it is suppose to be running `llama3`, if you want to use another, pass it as an argument
 
 ```bash
-make watcher MODEL_NAME=llama2
+make watcher MODEL_NAME=llama2 INPUT_FOLDER=scripts/ OUTPUT_FOLDER=documented_scripts/
 ```
 
 This will:
@@ -99,6 +99,15 @@ This will:
   - Extract functions without docstring
   - Ask your `llama3` model for docstring (via Langchain)
   - Save the result into `documented_scripts`
+
+### 3. How to modify the same file?
+To use the same folder for both input and output, you can specify the `input_folder` and `output_folder` arguments as follows:
+
+```bash
+make watcher INPUT_FOLDER=scripts/ OUTPUT_FOLDER=scripts/
+```
+
+⚠️ **Caution**: While this is possible, be aware that there may be issues if the file is being modified at the same time the model is processing and writing to it.
 
 ## 🧠 Powered by
 
@@ -124,7 +133,7 @@ Made with ❤️ by **Pablo Diego Acosta**
 
 ## ✨ Todo / Ideas
 
-- [ ] Rewrite the original file (with caution).
+- [X] Rewrite the original file (with caution).
 - [ ] Use any LLM hosted on a public hub.
 - [ ] Extend the functionality to support classes and complete scripts.
 

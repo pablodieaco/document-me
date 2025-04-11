@@ -14,7 +14,7 @@ def add(a, b):
     b (int): The second number to be added.
 
     Returns:
-    (int): The sum of the input numbers."""
+    int: The sum of the input numbers."""
     return a + b
 
 
@@ -36,7 +36,7 @@ def process_list(items):
     items (list): The list of items to be processed.
 
     Returns:
-    tuple: A tuple containing the total sum of the items and the sorted list.
+    tuple: A tuple containing the total value and the ordered list.
 
     Raises:
     None."""
@@ -47,14 +47,14 @@ def process_list(items):
 
 def complex_product(a, b):
     """    Description:
-    Calculate the product of two complex numbers.
+    Calculates the product of two complex numbers.
 
     Args:
     a (tuple): A tuple containing the real and imaginary parts of the first complex number.
     b (tuple): A tuple containing the real and imaginary parts of the second complex number.
 
     Returns:
-    result (tuple): A tuple containing the real and imaginary parts of the product of the input complex numbers."""
+    real_part, imag_part (tuple): A tuple containing the real and imaginary parts of the product."""
     a_real, a_i = a
     b_real, b_i = b
     real_part = a_real * b_real - a_i * b_i
@@ -67,10 +67,13 @@ def get_llm():
     Get LLMA model instance.
 
     Args:
-    None (None): No arguments required for this function.
+    None (None): No arguments required.
 
     Returns:
-    Ollama (str): Returns an instance of the Ollama language model."""
+    Ollama: Returns an instance of the Ollama language model with default parameters.
+
+    Raises:
+    ImportError: If langchain_community is not installed."""
     from langchain_community.llms import Ollama
     return Ollama(model='llama3', temperature=0.1, top_p=0.95,
         repeat_penalty=1.1, num_ctx=4096)
@@ -78,22 +81,23 @@ def get_llm():
 
 def safe_save(path, content):
     """
-    Description: Safely saves content to a file.
+    Description:
+    Safely saves content to a file.
 
     Args:
     path (str): The path where the file will be saved.
-    content (str): The content to be written to the file.
+    content (str): The content that will be written to the file.
 
     Returns:
     None
 
-    Raises:
-    Exception: If an error occurs while saving the file."""
+    Raises:"""
     import os
     from filelock import FileLock
     from loguru import logger
     lock_dir = os.path.join(os.path.dirname(path), '.locks')
     os.makedirs(lock_dir, exist_ok=True)
+    print('Run')
     filename = os.path.basename(path)
     lock_path = os.path.abspath(os.path.join(lock_dir, f'{filename}.lock'))
     with FileLock(lock_path):

@@ -46,7 +46,7 @@ def indent_docstring(docstring: str, indent_level: int = 1, spaces: int = 4) -> 
     )
 
 
-def insert_docstrings(filepath, documented_functions):
+def insert_docstrings(filepath: str, documented_functions: list):
     with open(filepath, "r") as f:
         source = f.read()
 
@@ -65,7 +65,9 @@ def insert_docstrings(filepath, documented_functions):
     return astor.to_source(tree)
 
 
-def save_to_output(original_path, content):
+def save_to_output(
+    original_path: str, content: str, output_folder: str = "documented_scripts/"
+):
     import os
 
     from document_me.utils import safe_save
@@ -74,7 +76,7 @@ def save_to_output(original_path, content):
 
     scripts_dir = os.path.abspath(os.path.join(os.path.dirname(original_path), ".."))
 
-    output_dir = os.path.join(scripts_dir, "documented_scripts")
+    output_dir = os.path.join(scripts_dir, output_folder)
 
     os.makedirs(output_dir, exist_ok=True)
 
